@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="120.117.41.93" id="6de41b26-2642-4a7d-92f9-701b6cf67378" port="22" nameFormat="DESCRIPTIVE" username="nvidia" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>
