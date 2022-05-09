@@ -80,6 +80,7 @@ def main(video_dic):
                     else: choice = 0
                     new_window_title = f"Camera:{name_list[choice]}"
                     cv2.setWindowTitle(window_title, new_window_title)
+                    cv2.destroyWindow(window_title)
                     window_title = new_window_title
                     print(f"Switch to Camera {name_list[choice]}")
                 elif key & 0xFF == ord('1'):
