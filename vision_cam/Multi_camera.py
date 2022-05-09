@@ -64,36 +64,35 @@ def main(video_dic):
         for q in q_list:
             if q.qsize != 0:
                 frame = q.get()
-                frame_list.append(frame)
-        for camera_frame in frame_list:
-            for name, image in camera_frame.items():
-                if name == name_list[choice]:
-                    image = cv2.resize(image, (640, 480))
-                    cv2.imshow("windows", image)
-        key = cv2.waitKey(10)
-        if key & 0xFF == ord('q'):
-            break
-        # Hsu Edited
-        elif key & 0xFF == ord('n'):
-            if choice < len(name_list)-1:
-                choice += 1
-            else: choice = 0
-            print(f"Switch to Camera {name_list[choice]}")
-        elif key & 0xFF == ord('1'):
-           cv2.destroyAllWindows()
-           choice = 0
-        elif key & 0xFF == ord('2'):
-           cv2.destroyAllWindows()
-           choice = 1
-        elif key & 0xFF == ord('3'):
-           cv2.destroyAllWindows()
-           choice = 2
-        elif key & 0xFF == ord('4'):
-           cv2.destroyAllWindows()
-           choice = 3
-        elif key & 0xFF == ord('5'):
-           cv2.destroyAllWindows()
-           choice = 4
+                #frame_list.append(frame)
+                for name, image in frame.items():
+                    if name == name_list[choice]:
+                        image = cv2.resize(image, (640, 480))
+                        cv2.imshow("windows", image)
+                key = cv2.waitKey(10)
+                if key & 0xFF == ord('q'):
+                    break
+                # Hsu Edited
+                elif key & 0xFF == ord('n'):
+                    if choice < len(name_list)-1:
+                        choice += 1
+                    else: choice = 0
+                    print(f"Switch to Camera {name_list[choice]}")
+                elif key & 0xFF == ord('1'):
+                   cv2.destroyAllWindows()
+                   choice = 0
+                elif key & 0xFF == ord('2'):
+                   cv2.destroyAllWindows()
+                   choice = 1
+                elif key & 0xFF == ord('3'):
+                   cv2.destroyAllWindows()
+                   choice = 2
+                elif key & 0xFF == ord('4'):
+                   cv2.destroyAllWindows()
+                   choice = 3
+                elif key & 0xFF == ord('5'):
+                   cv2.destroyAllWindows()
+                   choice = 4
 
 
     mulp.endprocess()
