@@ -58,10 +58,10 @@ def main(video_dic):
     name_list = []
     for name, item in video_dic.items():
         name_list.append(name)
-    frame_list = []
     choice = 0
     window_title = f"Camera:{name_list[choice]}"
-    while True:
+    runing_flag = True
+    while runing_flag:
         for q in q_list:
             if q.qsize != 0:
                 frame = q.get()
@@ -72,6 +72,7 @@ def main(video_dic):
                         cv2.imshow(window_title, image)
                 key = cv2.waitKey(10)
                 if key & 0xFF == ord('q'):
+                    runing_flag = False
                     break
                 # Hsu Edited
                 elif key & 0xFF == ord('n'):
