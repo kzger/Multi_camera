@@ -60,6 +60,7 @@ def main(video_dic):
         name_list.append(name)
     frame_list = []
     choice = 0
+    window_title = f"Camera:{name_list[choice]}"
     while True:
         for q in q_list:
             if q.qsize != 0:
@@ -68,7 +69,7 @@ def main(video_dic):
                 for name, image in frame.items():
                     if name == name_list[choice]:
                         image = cv2.resize(image, (640, 480))
-                        cv2.imshow("windows", image)
+                        cv2.imshow(window_title, image)
                 key = cv2.waitKey(10)
                 if key & 0xFF == ord('q'):
                     break
@@ -77,6 +78,9 @@ def main(video_dic):
                     if choice < len(name_list)-1:
                         choice += 1
                     else: choice = 0
+                    new_window_title = f"Camera:{name_list[choice]}"
+                    cv2.setWindowTitle(window_title, new_window_title)
+                    window_title = new_window_title
                     print(f"Switch to Camera {name_list[choice]}")
                 elif key & 0xFF == ord('1'):
                    cv2.destroyAllWindows()
