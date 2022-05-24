@@ -62,6 +62,5 @@ class socket_io(object):
 
 
 if __name__ == "__main__":
-    sock = socket_io()
-    ip = sock.get_host_ip()
+    ip = get_host_ip()
     print(f"IP:{ip}")

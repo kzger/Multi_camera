@@ -40,11 +40,12 @@ def new_main(video_dic):
     while True:
         if socket_q.qsize() != 0:
             data = socket_q.get()
-            if data == '1':
+            if str(data) == '1':
+                print(f"Receive data: {data}")
                 save_flag = True
         if save_flag:
             frame_dict = video_process(image_q, frame_dict)
-            if len(frame_dict) == 5:
+            if len(frame_dict) == len(video_dic):
                 image_saver(frame_dict)
                 frame_dict.clear()
                 save_flag = False
@@ -90,4 +91,4 @@ if __name__ == "__main__":
     #              "cam2": 'rtsp://admin:dh123456@10.15.202.177:554/'}
     print(f"cam_list:{cam_list}")
     mp.set_start_method('spawn')
-    main(video_dic)
+    new_main(video_dic)
